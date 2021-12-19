@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -76,7 +77,12 @@ public class ConfigDB {
     public void saveTable(String Table, String[] Fields, String[] Values){
         try {
             String SQL = "INSERT INTO "+Table+""+getFieldArray(Fields)+" VALUES "+getValueArray(Values);
+            Statement command = getConnect().createStatement();
+            command.executeUpdate(SQL);
+            command.close();
+            getConnect().close();
         } catch (Exception e) {
+            System.out.println(e.toString());
         }
     }
     

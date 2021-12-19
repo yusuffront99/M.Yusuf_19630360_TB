@@ -158,6 +158,7 @@ public class FormRegister extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
+      
         String pass1 = String.valueOf(password.getPassword());
         String pass2 = String.valueOf(repassword.getPassword());
 
@@ -165,8 +166,14 @@ public class FormRegister extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "username tidak boleh kosong");
         }else if(pass1.equals("")){
             JOptionPane.showMessageDialog(null, "Password tidak boleh kosong");
-        }else if(pass2.equals("")){
-            JOptionPane.showMessageDialog(null, "Konfirmasi password salah");
+        }else if(!pass2.equals(pass1)){
+            JOptionPane.showMessageDialog(null, "Password yang anda masukkan tidak sama");
+        }else{
+            String[] Fields = {"username","password","repassword"};
+            String[] Values = {username.getText(), String.valueOf(password.getPassword()), String.valueOf(repassword.getPassword())}; 
+            
+            new ConfigDB().saveTable("admin", Fields, Values);
+            JOptionPane.showMessageDialog(null, "Youre successfully registered");
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
