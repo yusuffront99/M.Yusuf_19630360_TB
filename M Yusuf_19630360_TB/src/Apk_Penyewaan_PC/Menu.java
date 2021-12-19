@@ -16,6 +16,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+
     }
 
     /**
@@ -27,31 +28,48 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        btnOperator = new javax.swing.JButton();
+        btnPengguna = new javax.swing.JButton();
         Menu = new javax.swing.JMenuBar();
         Home = new javax.swing.JMenu();
         FormMenu = new javax.swing.JMenu();
         Operator = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         Anggota = new javax.swing.JMenuItem();
         Profil = new javax.swing.JMenu();
         Exit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        btnOperator.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\icons8-operator-64.png")); // NOI18N
+        btnOperator.setText("Operator");
+        btnOperator.setFocusable(false);
+        btnOperator.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnOperator.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnOperator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOperatorActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 839, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-        );
+        btnPengguna.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\icons8-circled-user-male-skin-type-7-48.png")); // NOI18N
+        btnPengguna.setText("Pengguna");
+        btnPengguna.setFocusable(false);
+        btnPengguna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPengguna.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPengguna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPenggunaActionPerformed(evt);
+            }
+        });
 
-        Menu.setBackground(new java.awt.Color(51, 0, 255));
+        Menu.setBackground(new java.awt.Color(255, 255, 255));
+        Menu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Menu.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Menu.setMargin(new java.awt.Insets(0, 0, 10, 0));
 
@@ -61,7 +79,8 @@ public class Menu extends javax.swing.JFrame {
         Home.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Menu.add(Home);
 
-        FormMenu.setForeground(new java.awt.Color(255, 0, 153));
+        FormMenu.setBorder(null);
+        FormMenu.setForeground(new java.awt.Color(204, 102, 0));
         FormMenu.setText("Form Menu");
         FormMenu.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         FormMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -79,6 +98,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         FormMenu.add(Operator);
+        FormMenu.add(jSeparator1);
 
         Anggota.setText("Anggota");
         Anggota.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +110,7 @@ public class Menu extends javax.swing.JFrame {
 
         Menu.add(FormMenu);
 
-        Profil.setForeground(new java.awt.Color(204, 0, 204));
+        Profil.setForeground(new java.awt.Color(102, 204, 0));
         Profil.setText("Profil");
         Profil.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Menu.add(Profil);
@@ -104,21 +124,30 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(btnPengguna)
+                .addGap(141, 141, 141)
+                .addComponent(btnOperator)
+                .addContainerGap(384, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 434, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnOperator)
+                    .addComponent(btnPengguna))
+                .addGap(0, 351, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void OperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OperatorActionPerformed
         // TODO add your handling code here:
-        new Operator().setVisible(true);
+        
     }//GEN-LAST:event_OperatorActionPerformed
 
     private void OperatorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OperatorMouseClicked
@@ -128,8 +157,22 @@ public class Menu extends javax.swing.JFrame {
 
     private void AnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnggotaActionPerformed
         // TODO add your handling code here:
-        new Pelanggan().setVisible(true);
+        
     }//GEN-LAST:event_AnggotaActionPerformed
+
+    private void btnOperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperatorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOperatorActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnPenggunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPenggunaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnPenggunaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,7 +185,7 @@ public class Menu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -174,6 +217,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar Menu;
     private javax.swing.JMenuItem Operator;
     private javax.swing.JMenu Profil;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnOperator;
+    private javax.swing.JButton btnPengguna;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

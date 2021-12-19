@@ -10,5 +10,9 @@ package Apk_Penyewaan_PC;
  * @author myusu
  */
 public class ConfigDB {
+    ConfigDB(){}
     
+    public void hello(){
+        System.out.println("Hello");
+    }
 }
