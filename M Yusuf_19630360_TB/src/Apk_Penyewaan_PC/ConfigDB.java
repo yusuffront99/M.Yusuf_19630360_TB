@@ -8,8 +8,10 @@ package Apk_Penyewaan_PC;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -74,6 +76,7 @@ public class ConfigDB {
         return "("+hasil+")";   
     }
     
+    //======= SIMPAN DATA
     public void saveTable(String Table, String[] Fields, String[] Values){
         try {
             String SQL = "INSERT INTO "+Table+""+getFieldArray(Fields)+" VALUES "+getValueArray(Values);
@@ -81,6 +84,25 @@ public class ConfigDB {
             command.executeUpdate(SQL);
             command.close();
             getConnect().close();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+    
+    //======= LOGIN ====
+    public void login(String Table, String data1, String data2){
+        try {
+            String SQl = "SELECT * FROM "+Table+" WHERE username="+"'"+data1+"'"+" AND password="+"'"+data2+"'";
+            Statement command = getConnect().createStatement();
+            ResultSet rs = command.executeQuery(SQl);
+            
+            rs.next();
+            if(rs.getRow() == 1){
+                JOptionPane.showMessageDialog(null, "Berhasil Login");
+                new Menu().setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Username dan Password Salah");
+            }
         } catch (Exception e) {
             System.out.println(e.toString());
         }

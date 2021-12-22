@@ -164,6 +164,7 @@ public class FormRegister extends javax.swing.JFrame {
 
         if(username.getText().equals("")){
             JOptionPane.showMessageDialog(null, "username tidak boleh kosong");
+            username.requestFocus();
         }else if(pass1.equals("")){
             JOptionPane.showMessageDialog(null, "Password tidak boleh kosong");
         }else if(!pass2.equals(pass1)){
