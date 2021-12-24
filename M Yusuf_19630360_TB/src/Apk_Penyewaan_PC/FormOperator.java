@@ -22,10 +22,15 @@ public class FormOperator extends javax.swing.JFrame {
      */
     
     String[] subtitle = {"ID Operator", "Nama Lengkap", "Jenis Kelamin", "Tanggal Lahir","Alamat","Telepon"};
+    int[] WidthToColumn = {80,180,120,150,320,120};
+    String SQL = "SELECT * FROM operator";
     
     public FormOperator() {
         initComponents();
         new ConfigDB().setTitleColumn(tbloperator, subtitle);
+        new ConfigDB().setShowTable(tbloperator, subtitle, SQL);
+        new ConfigDB().setWidhtTitColumn(tbloperator, WidthToColumn);
+        
     }
 
     /**
