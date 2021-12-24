@@ -30,7 +30,7 @@ public class FormOperator extends javax.swing.JFrame {
         new ConfigDB().setTitleColumn(tbloperator, subtitle);
         new ConfigDB().setShowTable(tbloperator, subtitle, SQL);
         new ConfigDB().setWidhtTitColumn(tbloperator, WidthToColumn);
-        
+               
     }
 
     /**
@@ -128,13 +128,28 @@ public class FormOperator extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbloperator.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbloperatorMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbloperator);
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
 
         btnedit.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\edit.png")); // NOI18N
+        btnedit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneditActionPerformed(evt);
+            }
+        });
 
         btndelete.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\trash.png")); // NOI18N
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
 
         btnsave.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\save.png")); // NOI18N
         btnsave.addActionListener(new java.awt.event.ActionListener() {
@@ -234,9 +249,8 @@ public class FormOperator extends javax.swing.JFrame {
                             .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(cbbjk, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(id, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel2)
+                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(telp)
@@ -287,6 +301,11 @@ public class FormOperator extends javax.swing.JFrame {
         );
 
         btnreset.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\reset.png")); // NOI18N
+        btnreset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnresetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -439,6 +458,62 @@ public class FormOperator extends javax.swing.JFrame {
     private void tgllahirInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tgllahirInputMethodTextChanged
         // TODO add 
     }//GEN-LAST:event_tgllahirInputMethodTextChanged
+
+    private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
+        // TODO add your handling code here:
+        DateFormat dm = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = tgllahir.getDate();
+        
+        String txtid = id.getText();
+        String txtnama = nama.getText();
+        String jk = String.valueOf(cbbjk.getSelectedItem());
+        String tgl = dm.format(date);
+        String txtalamat = alamat.getText();
+        String txttelp = telp.getText();
+        
+        String[] F = {"id_operator","nama","jns_kelamin","tanggal_lahir","alamat","telepon"};
+        String[] V = {txtid, txtnama, jk, tgl, txtalamat, txttelp};
+        
+        new ConfigDB().updateData("operator", "id_operator", txtid, F, V);
+        new ConfigDB().setTitleColumn(tbloperator, subtitle);
+        new ConfigDB().setShowTable(tbloperator, subtitle, SQL);
+        new ConfigDB().setWidhtTitColumn(tbloperator, WidthToColumn);
+
+    }//GEN-LAST:event_btneditActionPerformed
+
+    private void tbloperatorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbloperatorMouseClicked
+        // TODO add your handling code here:
+        DateFormat dm = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = tgllahir.getDate();
+        
+        int row = tbloperator.getSelectedRow();
+        id.setText(tbloperator.getModel().getValueAt(row, 0).toString());
+        nama.setText(tbloperator.getModel().getValueAt(row, 1).toString());
+        cbbjk.setSelectedItem(tbloperator.getModel().getValueAt(row, 2).toString());
+        
+        alamat.setText(tbloperator.getModel().getValueAt(row, 4).toString());
+        telp.setText(tbloperator.getModel().getValueAt(row, 5).toString());             
+    }//GEN-LAST:event_tbloperatorMouseClicked
+
+    private void btnresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresetActionPerformed
+        // TODO add your handling code here:
+        Date date = new Date();
+        
+        id.setText("");
+        nama.setText("");
+        cbbjk.setSelectedItem("--- Jenis Kelamin ---");
+        tgllahir.setDate(date);
+        alamat.setText("");
+        telp.setText("");
+    }//GEN-LAST:event_btnresetActionPerformed
+
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+        // TODO add your handling code here:
+        new ConfigDB().deleteDinamis("operator", "id_operator", id.getText());
+         new ConfigDB().setTitleColumn(tbloperator, subtitle);
+        new ConfigDB().setShowTable(tbloperator, subtitle, SQL);
+        new ConfigDB().setWidhtTitColumn(tbloperator, WidthToColumn);
+    }//GEN-LAST:event_btndeleteActionPerformed
 
     /**
      * @param args the command line arguments

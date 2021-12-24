@@ -92,6 +92,50 @@ public class ConfigDB {
         }
     }
     
+    //======= UPDATE DATA
+     public String getDoubleArrays(String[] Fields, String[] Values){
+        String hasil = "";
+        int detection = Fields.length - 1;
+        try {
+            for (int i = 0; i < Fields.length; i++) {
+                if(i==detection){
+                    hasil = hasil +Fields[i]+"='"+Values[i]+"'";
+                }else{
+                    hasil = hasil +Fields[i]+"='"+Values[i]+"',";
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+        return ""+hasil+"";
+    }
+     
+    public void updateData(String Table, String PrimaryKey, String Key, String[] Fields, String[] Values){
+        try {
+            String SQLUpdate = "UPDATE "+Table+" SET "+getDoubleArrays(Fields, Values)+" WHERE "+PrimaryKey+"='"+Key+"'";
+            Statement Command = getConnect().createStatement();
+            Command.executeUpdate(SQLUpdate);
+            Command.close();
+            getConnect().close();
+            JOptionPane.showMessageDialog(null, "Updated Data Successfully");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+    }
+    
+    public void deleteDinamis(String Table, String Primary, String KodeFilm){
+        try {
+            String SQLHapus = "DELETE FROM "+Table+" WHERE "+Primary+" = '"+KodeFilm+"'";
+            Statement commandDelete = getConnect().createStatement();
+            commandDelete.executeUpdate(SQLHapus);
+            commandDelete.close();
+            getConnect().close();
+            JOptionPane.showMessageDialog(null, "Data Deleted Successfully");
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
+    }
+    
     //==== DOUBLE KEY CHECK ===========================================
     public boolean getDupKey(String table, String Primary, String Isi){
         boolean hasil = false;

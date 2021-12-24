@@ -148,6 +148,9 @@
               </Table>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbloperatorMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -206,6 +209,9 @@
               <Image iconType="2" name="D:\SEMESTER 5\PBO 2\UAS\M.Yusuf_19630360_TB\icons\edit.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneditActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btndelete">
           <Properties>
@@ -213,6 +219,9 @@
               <Image iconType="2" name="D:\SEMESTER 5\PBO 2\UAS\M.Yusuf_19630360_TB\icons\trash.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndeleteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnsave">
           <Properties>
@@ -254,10 +263,8 @@
                                   <Component id="nama" alignment="0" min="-2" pref="310" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="cbbjk" alignment="0" min="-2" pref="302" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="id" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="id" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -501,6 +508,9 @@
               <Image iconType="2" name="D:\SEMESTER 5\PBO 2\UAS\M.Yusuf_19630360_TB\icons\reset.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnresetActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
