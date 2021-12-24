@@ -89,6 +89,28 @@ public class ConfigDB {
         }
     }
     
+    //==== DOUBLE KEY CHECK ===========================================
+    public boolean getDupKey(String table, String Primary, String Isi){
+        boolean hasil = false;
+        //checking        
+        try {
+            String SQLcari = "SELECT * FROM "+table+" WHERE "+Primary+" = '"+Isi+"'";
+            //            
+            Statement CekData = getConnect().createStatement();
+            //Get Data            
+            ResultSet PK = CekData.executeQuery(SQLcari);
+            
+            if(PK.next()){
+                hasil = true;
+            }else {
+                hasil = false;
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return hasil;
+    }
+    
     //======= LOGIN ====
     public void login(String Table, String data1, String data2){
         try {

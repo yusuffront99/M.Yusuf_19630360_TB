@@ -5,6 +5,7 @@
  */
 package Apk_Penyewaan_PC;
 
+import java.awt.Color;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,7 +22,6 @@ public class FormOperator extends javax.swing.JFrame {
      */
     public FormOperator() {
         initComponents();
-        String tgl;
     }
 
     /**
@@ -147,13 +147,15 @@ public class FormOperator extends javax.swing.JFrame {
 
         id.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         id.setForeground(new java.awt.Color(255, 51, 51));
+        id.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel3.setBackground(new java.awt.Color(255, 153, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nama Operator");
 
-        nama.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        nama.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        nama.setForeground(new java.awt.Color(255, 51, 0));
 
         jLabel4.setBackground(new java.awt.Color(255, 153, 0));
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -175,7 +177,8 @@ public class FormOperator extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Telepon");
 
-        telp.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        telp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        telp.setForeground(new java.awt.Color(255, 51, 0));
         telp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telpActionPerformed(evt);
@@ -185,9 +188,25 @@ public class FormOperator extends javax.swing.JFrame {
         cbbjk.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbbjk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Jenis Kelamin ---", "Pria", "Wanita" }));
 
+        alamat.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
+        alamat.setForeground(new java.awt.Color(255, 51, 0));
         jScrollPane2.setViewportView(alamat);
 
+        tgllahir.setForeground(new java.awt.Color(255, 51, 0));
         tgllahir.setDateFormatString("yyyy-MMM-d");
+        tgllahir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        tgllahir.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                tgllahirInputMethodTextChanged(evt);
+            }
+        });
+        tgllahir.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tgllahirPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -377,6 +396,7 @@ public class FormOperator extends javax.swing.JFrame {
         String tgl = dm.format(date);
         
         
+        
         if(id.getText().equals("")){
             JOptionPane.showMessageDialog(null, "ID Operator tidak boleh kosong", "ID Operator", JOptionPane.WARNING_MESSAGE);
             id.requestFocus();
@@ -394,15 +414,23 @@ public class FormOperator extends javax.swing.JFrame {
             telp.requestFocus();
         }else{
             
-            String[] Fields = {"id_operator","nama_operator","jns_kelamin","tanggal_lahir","alamat","telepon"};
+            String[] Fields = {"id_operator","nama","jns_kelamin","tanggal_lahir","alamat","telepon"};
             String[] Arrays = {id.getText(), nama.getText(), String.valueOf(cbbjk.getSelectedItem()), tgl, alamat.getText(), telp.getText()};
             
             new ConfigDB().saveTable("operator", Fields, Arrays);
-//            JOptionPane.showMessageDialog(null, "Data Saved Successfully");
+            JOptionPane.showMessageDialog(null, "Data Saved Successfully");
         }
-        
-        
     }//GEN-LAST:event_btnsaveActionPerformed
+
+    private void tgllahirPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tgllahirPropertyChange
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_tgllahirPropertyChange
+
+    private void tgllahirInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tgllahirInputMethodTextChanged
+        // TODO add 
+    }//GEN-LAST:event_tgllahirInputMethodTextChanged
 
     /**
      * @param args the command line arguments
