@@ -12,6 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -125,6 +128,74 @@ public class ConfigDB {
             }else{
                 JOptionPane.showMessageDialog(null, "Username dan Password Salah");
             }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+    
+    
+    //================================================================== METHODS TABLE
+
+    public void setTitleColumn(JTable Table, String[] JudulKolom){
+        try {
+            DefaultTableModel model = new DefaultTableModel();
+            Table.setModel(model);
+            model.getDataVector().removeAllElements();
+            model.fireTableDataChanged();
+            
+            for (int i = 0; i < JudulKolom.length; i++) {
+                model.addColumn(JudulKolom[i]);
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+    
+    //-----------------------------------------------
+    public void setWidhtTitColumn(JTable Table, int[] WidthColumnTo){
+        try {
+            TableColumn ColumnTo = new TableColumn();
+            Table.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+            
+            for (int i = 0; i < WidthColumnTo.length; i++) {
+                ColumnTo = Table.getColumnModel().getColumn(i);
+                ColumnTo.setPreferredWidth(WidthColumnTo[i]);
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+    
+    //---------------------- OBJECT CONVERTION 
+    public Object[][] TableFills(String SQL, int nColumns){
+        Object[][] data = null;
+        
+        try {
+            Statement command = getConnect().createStatement();
+            ResultSet dataset = command.executeQuery(SQL);
+            dataset.last();
+            int nRows = dataset.getRow();
+            dataset.beforeFirst();
+            
+            int j = 0;
+            data = new Object[nRows][nColumns];
+            while (dataset.next()) {                
+                for (int i = 0; i < nColumns; i++) {
+                    data[j][i] = dataset.getString(i+1);
+                }
+                j++;
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        
+        return data;
+    }
+    
+    //---------------------- CATCH TITLE
+    public void setShowTable(JTable Table, String[] Title, String SQL){
+        try {
+            Table.setModel(new DefaultTableModel(TableFills(SQL, Title.length), Title));
         } catch (Exception e) {
             System.out.println(e.toString());
         }

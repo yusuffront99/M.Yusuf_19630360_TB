@@ -20,8 +20,12 @@ public class FormOperator extends javax.swing.JFrame {
     /**
      * Creates new form FormOperator
      */
+    
+    String[] subtitle = {"ID Operator", "Nama Lengkap", "Jenis Kelamin", "Tanggal Lahir","Alamat","Telepon"};
+    
     public FormOperator() {
         initComponents();
+        new ConfigDB().setTitleColumn(tbloperator, subtitle);
     }
 
     /**
@@ -38,7 +42,7 @@ public class FormOperator extends javax.swing.JFrame {
         btnexit = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbloperator = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         btnedit = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
@@ -108,7 +112,7 @@ public class FormOperator extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbloperator.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -119,7 +123,7 @@ public class FormOperator extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbloperator);
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -155,7 +159,6 @@ public class FormOperator extends javax.swing.JFrame {
         jLabel3.setText("Nama Operator");
 
         nama.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        nama.setForeground(new java.awt.Color(255, 51, 0));
 
         jLabel4.setBackground(new java.awt.Color(255, 153, 0));
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -178,7 +181,6 @@ public class FormOperator extends javax.swing.JFrame {
         jLabel7.setText("Telepon");
 
         telp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        telp.setForeground(new java.awt.Color(255, 51, 0));
         telp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telpActionPerformed(evt);
@@ -189,10 +191,8 @@ public class FormOperator extends javax.swing.JFrame {
         cbbjk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Jenis Kelamin ---", "Pria", "Wanita" }));
 
         alamat.setFont(new java.awt.Font("Tahoma", 1, 17)); // NOI18N
-        alamat.setForeground(new java.awt.Color(255, 51, 0));
         jScrollPane2.setViewportView(alamat);
 
-        tgllahir.setForeground(new java.awt.Color(255, 51, 0));
         tgllahir.setDateFormatString("yyyy-MMM-d");
         tgllahir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         tgllahir.addInputMethodListener(new java.awt.event.InputMethodListener() {
@@ -395,8 +395,6 @@ public class FormOperator extends javax.swing.JFrame {
         Date date = tgllahir.getDate();
         String tgl = dm.format(date);
         
-        
-        
         if(id.getText().equals("")){
             JOptionPane.showMessageDialog(null, "ID Operator tidak boleh kosong", "ID Operator", JOptionPane.WARNING_MESSAGE);
             id.requestFocus();
@@ -417,9 +415,14 @@ public class FormOperator extends javax.swing.JFrame {
             String[] Fields = {"id_operator","nama","jns_kelamin","tanggal_lahir","alamat","telepon"};
             String[] Arrays = {id.getText(), nama.getText(), String.valueOf(cbbjk.getSelectedItem()), tgl, alamat.getText(), telp.getText()};
             
-            new ConfigDB().saveTable("operator", Fields, Arrays);
-            JOptionPane.showMessageDialog(null, "Data Saved Successfully");
+            if(new ConfigDB().getDupKey("operator", "id_operator", id.getText())){
+                JOptionPane.showMessageDialog(null, "ID yang anda masukkan sudah terdaftar");
+            }else{
+                new ConfigDB().saveTable("operator", Fields, Arrays);
+                JOptionPane.showMessageDialog(null, "Data Saved Successfully");
+            }
         }
+        
     }//GEN-LAST:event_btnsaveActionPerformed
 
     private void tgllahirPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tgllahirPropertyChange
@@ -495,9 +498,9 @@ public class FormOperator extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField nama;
     private javax.swing.JTextField search;
+    private javax.swing.JTable tbloperator;
     private javax.swing.JTextField telp;
     private com.toedter.calendar.JDateChooser tgllahir;
     // End of variables declaration//GEN-END:variables
