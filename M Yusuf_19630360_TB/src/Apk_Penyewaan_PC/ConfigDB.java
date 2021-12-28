@@ -168,7 +168,6 @@ public class ConfigDB {
             rs.next();
             if(rs.getRow() == 1){
                 JOptionPane.showMessageDialog(null, "Berhasil Login");
-                new FormMenu().setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Username dan Password Salah");
             }
