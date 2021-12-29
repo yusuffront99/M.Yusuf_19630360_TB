@@ -383,6 +383,11 @@ public class FormOperator extends javax.swing.JFrame {
         );
 
         btnprint.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\printer (1).png")); // NOI18N
+        btnprint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnprintActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -563,6 +568,11 @@ public class FormOperator extends javax.swing.JFrame {
         new FormMenu().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnhomeActionPerformed
+
+    private void btnprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprintActionPerformed
+        // TODO add your handling code here:
+        new ConfigDB().ReportShow("src/Laporan_Operator/report_operator.jrxml", "SELECT * FROM operator");
+    }//GEN-LAST:event_btnprintActionPerformed
 
     /**
      * @param args the command line arguments
