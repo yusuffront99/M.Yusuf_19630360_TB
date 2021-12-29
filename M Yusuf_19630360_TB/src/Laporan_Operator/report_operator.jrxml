@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="59798f06-babf-451c-9434-aeac569c98bf">
-	<property name="ireport.zoom" value="3.452271214393105"/>
-	<property name="ireport.x" value="972"/>
-	<property name="ireport.y" value="115"/>
+	<property name="ireport.zoom" value="1.3310000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -61,11 +61,11 @@
 			<staticText>
 				<reportElement style="Column header" x="0" y="20" width="40" height="15" uuid="b365e9f5-8bbe-43eb-a483-cb69ed7064d0"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[No ID]]></text>
@@ -73,11 +73,11 @@
 			<staticText>
 				<reportElement style="Column header" x="40" y="20" width="110" height="15" uuid="8a2f56f8-3bf3-41ec-9e89-8cf47b501221"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Nama Lengkap]]></text>
@@ -85,11 +85,11 @@
 			<staticText>
 				<reportElement style="Column header" x="150" y="20" width="55" height="15" uuid="6a6a74ee-4d3b-4981-b01b-dc0bd4c84d18"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Gender]]></text>
@@ -97,11 +97,11 @@
 			<staticText>
 				<reportElement style="Column header" x="205" y="20" width="92" height="15" uuid="6ffd5a4d-0c84-4827-83cc-3271ceb5914c"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Tanggal Lahir]]></text>
@@ -109,11 +109,11 @@
 			<staticText>
 				<reportElement style="Column header" x="297" y="20" width="165" height="15" uuid="571d2154-18dd-4937-91e8-fdf4c1226090"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Alamat]]></text>
@@ -121,11 +121,11 @@
 			<staticText>
 				<reportElement style="Column header" x="462" y="20" width="92" height="15" uuid="d2fa3b45-4572-424b-a075-d544ee91f5f0"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center"/>
 				<text><![CDATA[Telepon]]></text>
@@ -143,11 +143,11 @@
 			<textField>
 				<reportElement style="Detail" x="0" y="0" width="40" height="15" uuid="a7160814-4219-4c9c-bb76-f4867a0bdc64"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{id_operator}]]></textFieldExpression>
@@ -155,22 +155,23 @@
 			<textField>
 				<reportElement style="Detail" x="40" y="0" width="110" height="15" uuid="019ea813-0ba1-4c35-865b-ad1f0d40537a"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="Detail" x="150" y="0" width="55" height="15" uuid="127c7ba5-70ed-41d5-843f-98cf1eb42728"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{jns_kelamin}]]></textFieldExpression>
@@ -178,34 +179,37 @@
 			<textField>
 				<reportElement style="Detail" x="297" y="0" width="165" height="15" uuid="1682717b-508d-40f5-8bd7-8c9cb7a1a8b7"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="Detail" x="462" y="0" width="92" height="15" uuid="b2062d02-ea57-4301-aca5-c485384ecf25"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{telepon}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="Detail" x="205" y="0" width="92" height="15" uuid="aab6c736-0cb5-4d65-b38e-b622ab742da6"/>
 				<box>
-					<pen lineWidth="1.0"/>
-					<topPen lineWidth="1.0"/>
-					<leftPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-					<rightPen lineWidth="1.0"/>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
 				</box>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{tanggal_lahir}]]></textFieldExpression>
 			</textField>
 		</band>
