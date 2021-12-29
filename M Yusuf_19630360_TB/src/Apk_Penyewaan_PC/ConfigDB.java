@@ -5,6 +5,8 @@
  */
 package Apk_Penyewaan_PC;
 
+import static com.sun.javafx.tk.Toolkit.getToolkit;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.Driver;
@@ -12,6 +14,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -280,6 +283,15 @@ public class ConfigDB {
 
         }
      }
-    
-    
+        
+      
+     //================== ADDITION METHODS
+     public void FilterInputType(KeyEvent evt){
+         char x = evt.getKeyChar();
+        if(Character.isAlphabetic(x)){
+            new JFrame().getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Masukkan angka 0 -9");
+            evt.consume();
+        }
+     }
 }
