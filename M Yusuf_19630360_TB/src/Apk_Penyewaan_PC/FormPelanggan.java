@@ -168,10 +168,10 @@ public class FormPelanggan extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(255, 153, 0));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Durasi");
+        jLabel7.setText("Durasi/Jam");
 
         cbbpaket.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        cbbpaket.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Box ---", "A", "B", "C", "D", "E" }));
+        cbbpaket.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Paket---", "A", "B", "C", "D", "E" }));
 
         jLabel9.setBackground(new java.awt.Color(255, 153, 0));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -184,11 +184,21 @@ public class FormPelanggan extends javax.swing.JFrame {
                 telpActionPerformed(evt);
             }
         });
+        telp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                telpKeyTyped(evt);
+            }
+        });
 
         durasi.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         durasi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 durasiActionPerformed(evt);
+            }
+        });
+        durasi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                durasiKeyTyped(evt);
             }
         });
 
@@ -230,13 +240,13 @@ public class FormPelanggan extends javax.swing.JFrame {
                                     .addComponent(cbbjk, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(usia, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel6)
                                 .addComponent(jLabel7)
                                 .addComponent(jLabel9)
-                                .addComponent(telp, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(durasi, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbbpaket, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(telp, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                                .addComponent(cbbpaket, 0, 310, Short.MAX_VALUE)
+                                .addComponent(durasi))
                             .addGap(106, 106, 106)))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -405,7 +415,7 @@ public class FormPelanggan extends javax.swing.JFrame {
         }else if(telp.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Nomor telepon tidak boleh kosong", "Inputan Kosong", JOptionPane.ERROR_MESSAGE);
             nama.requestFocus();
-        }else if(cbbpaket.getSelectedItem().equals("--- Pilih Box ---")){
+        }else if(cbbpaket.getSelectedItem().equals("--- Pilih Paket ---")){
             JOptionPane.showMessageDialog(null, "Anda belum memilih paket box", "Inputan Kosong", JOptionPane.ERROR_MESSAGE);
             nama.requestFocus();
         }else if(durasi.getText().equals("")){
@@ -431,6 +441,16 @@ public class FormPelanggan extends javax.swing.JFrame {
         // TODO add your handling code here:
         new ConfigDB().FilterInputType(evt);
     }//GEN-LAST:event_usiaKeyTyped
+
+    private void telpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telpKeyTyped
+        // TODO add your handling code here:
+        new ConfigDB().FilterInputType(evt);
+    }//GEN-LAST:event_telpKeyTyped
+
+    private void durasiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_durasiKeyTyped
+        // TODO add your handling code here:
+        new ConfigDB().FilterInputType(evt);
+    }//GEN-LAST:event_durasiKeyTyped
 
     /**
      * @param args the command line arguments

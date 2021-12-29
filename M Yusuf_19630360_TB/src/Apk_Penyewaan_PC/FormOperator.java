@@ -212,6 +212,11 @@ public class FormOperator extends javax.swing.JFrame {
                 telpActionPerformed(evt);
             }
         });
+        telp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                telpKeyTyped(evt);
+            }
+        });
 
         cbbjk.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbbjk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Jenis Kelamin ---", "Pria", "Wanita" }));
@@ -585,6 +590,11 @@ public class FormOperator extends javax.swing.JFrame {
         new ConfigDB().search(tbloperator, subtitle, SQL);
         new ConfigDB().setWidhtTitColumn(tbloperator, WidthToColumn);
     }//GEN-LAST:event_searchKeyReleased
+
+    private void telpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telpKeyTyped
+        // TODO add your handling code here:
+        new ConfigDB().FilterInputType(evt);
+    }//GEN-LAST:event_telpKeyTyped
 
     /**
      * @param args the command line arguments

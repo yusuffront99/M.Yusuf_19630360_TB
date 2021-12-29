@@ -249,13 +249,13 @@
                                       <Component id="usia" min="-2" pref="310" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="telp" min="-2" pref="310" max="-2" attributes="0"/>
-                                      <Component id="durasi" min="-2" pref="310" max="-2" attributes="0"/>
-                                      <Component id="cbbpaket" alignment="0" min="-2" pref="310" max="-2" attributes="0"/>
+                                      <Component id="telp" pref="310" max="32767" attributes="0"/>
+                                      <Component id="cbbpaket" alignment="0" pref="310" max="32767" attributes="0"/>
+                                      <Component id="durasi" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                               </Group>
@@ -394,7 +394,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Durasi"/>
+                <Property name="text" type="java.lang.String" value="Durasi/Jam"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="cbbpaket">
@@ -404,7 +404,7 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="6">
-                    <StringItem index="0" value="--- Pilih Box ---"/>
+                    <StringItem index="0" value="--- Pilih Paket---"/>
                     <StringItem index="1" value="A"/>
                     <StringItem index="2" value="B"/>
                     <StringItem index="3" value="C"/>
@@ -439,6 +439,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telpActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="telpKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="durasi">
@@ -449,6 +450,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="durasiActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="durasiKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="cbbjk">
