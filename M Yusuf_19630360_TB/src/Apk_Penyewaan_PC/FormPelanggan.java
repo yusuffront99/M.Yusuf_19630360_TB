@@ -527,8 +527,9 @@ public class FormPelanggan extends javax.swing.JFrame {
         
         
         String[] F = {"id_pelanggan","nama","jns_kelamin","usia","telepon","paket","durasi"};
-        String[] V = {txtid, txtnama, jk, txtusia, txttelp, paket, total};
-        
+        String[] V = {txtid, txtnama, jk, txtusia, txttelp, paket, total};       
+      
+        new ConfigDB().getDupKey("pelanggan", "id_pelanggan", id.getText());
         new ConfigDB().updateData("pelanggan", "id_pelanggan", txtid, F, V);
         JOptionPane.showMessageDialog(null, "Data Updated Successfully");
         new ConfigDB().setTitleColumn(tblpelanggan, subtitle);
@@ -546,7 +547,6 @@ public class FormPelanggan extends javax.swing.JFrame {
         telp.setText(tblpelanggan.getModel().getValueAt(row, 4).toString());
         cbbpaket.setSelectedItem(tblpelanggan.getModel().getValueAt(row, 5).toString());
         durasi.setText(tblpelanggan.getModel().getValueAt(row, 6).toString());  
-        durasi.setText("Rp.");
     }//GEN-LAST:event_tblpelangganMouseClicked
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
@@ -587,12 +587,16 @@ public class FormPelanggan extends javax.swing.JFrame {
         }else{
             String[] Fields = {"id_pelanggan","nama","jns_kelamin","usia","telepon","paket","durasi"};
             String[] Arrays = {id.getText(), nama.getText(), String.valueOf(cbbjk.getSelectedItem()), usia.getText(), telp.getText(), String.valueOf(cbbpaket.getSelectedItem()), total};
-
-            new ConfigDB().saveTable("pelanggan", Fields, Arrays);
-            JOptionPane.showMessageDialog(null, "Data Saved Successfully");
-            new ConfigDB().setTitleColumn(tblpelanggan, subtitle);
-            new ConfigDB().setShowTable(tblpelanggan, subtitle, SQL);
-            new ConfigDB().setWidhtTitColumn(tblpelanggan, WidthToColumn);
+            
+            if(new ConfigDB().getDupKey("pelanggan", "id_pelanggan", id.getText())){
+                JOptionPane.showMessageDialog(null, "ID yang anda masukkan sudah terdaftar", "Alert", JOptionPane.ERROR_MESSAGE);
+            }else{
+                new ConfigDB().saveTable("pelanggan", Fields, Arrays);
+                JOptionPane.showMessageDialog(null, "Data Saved Successfully");
+                new ConfigDB().setTitleColumn(tblpelanggan, subtitle);
+                new ConfigDB().setShowTable(tblpelanggan, subtitle, SQL);
+                new ConfigDB().setWidhtTitColumn(tblpelanggan, WidthToColumn);  
+            }     
         }
     }//GEN-LAST:event_btnsaveActionPerformed
 
