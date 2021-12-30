@@ -540,7 +540,7 @@ public class FormOperator extends javax.swing.JFrame {
         
         id.setText("");
         nama.setText("");
-        cbbjk.setSelectedItem("--- Jenis Kelamin ---");
+        cbbjk.setSelectedIndex(0);
         tgllahir.setDate(date);
         alamat.setText("");
         telp.setText("");

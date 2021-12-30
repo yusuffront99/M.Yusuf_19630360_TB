@@ -231,9 +231,8 @@ public class FormPelanggan extends javax.swing.JFrame {
                             .addComponent(usia)
                             .addComponent(jLabel3)
                             .addComponent(jSeparator1)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(id, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(id)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -364,6 +363,11 @@ public class FormPelanggan extends javax.swing.JFrame {
 
         btnreset.setBackground(new java.awt.Color(255, 255, 255));
         btnreset.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\reset.png")); // NOI18N
+        btnreset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnresetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -493,7 +497,7 @@ public class FormPelanggan extends javax.swing.JFrame {
         String[] F = {"id_pelanggan","nama","jns_kelamin","usia","telepon","paket","durasi"};
         String[] V = {txtid, txtnama, jk, txtusia, txttelp, paket, txtdurasi};
         
-        new ConfigDB().updateData("pelanggan", "id_pelanggan", id.getText(), F, V);
+        new ConfigDB().updateData("pelanggan", "id_pelanggan", txtid, F, V);
         JOptionPane.showMessageDialog(null, "Data Updated Successfully");
         new ConfigDB().setTitleColumn(tblpelanggan, subtitle);
         new ConfigDB().setShowTable(tblpelanggan, subtitle, SQL);
@@ -503,13 +507,13 @@ public class FormPelanggan extends javax.swing.JFrame {
     private void tblpelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblpelangganMouseClicked
         // TODO add your handling code here:
         int row = tblpelanggan.getSelectedRow();
-        id.setText(tblpelanggan.getModel().getValueAt(row, 1).toString());        
-        nama.setText(tblpelanggan.getModel().getValueAt(row, 2).toString());
-        cbbjk.setSelectedItem(tblpelanggan.getModel().getValueAt(row, 3).toString());
-        usia.setText(tblpelanggan.getModel().getValueAt(row, 4).toString());
-        telp.setText(tblpelanggan.getModel().getValueAt(row, 5).toString());
-        cbbpaket.setSelectedItem(tblpelanggan.getModel().getValueAt(row, 6).toString());
-        durasi.setText(tblpelanggan.getModel().getValueAt(row, 7).toString());  
+        id.setText(tblpelanggan.getModel().getValueAt(row, 0).toString());        
+        nama.setText(tblpelanggan.getModel().getValueAt(row, 1).toString());
+        cbbjk.setSelectedItem(tblpelanggan.getModel().getValueAt(row, 2).toString());
+        usia.setText(tblpelanggan.getModel().getValueAt(row, 3).toString());
+        telp.setText(tblpelanggan.getModel().getValueAt(row, 4).toString());
+        cbbpaket.setSelectedItem(tblpelanggan.getModel().getValueAt(row, 5).toString());
+        durasi.setText(tblpelanggan.getModel().getValueAt(row, 6).toString());  
     }//GEN-LAST:event_tblpelangganMouseClicked
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
@@ -555,6 +559,17 @@ public class FormPelanggan extends javax.swing.JFrame {
             new ConfigDB().setWidhtTitColumn(tblpelanggan, WidthToColumn);
         }
     }//GEN-LAST:event_btnsaveActionPerformed
+
+    private void btnresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresetActionPerformed
+        // TODO add your handling code here:
+        id.setText("");
+        nama.setText("");
+        cbbjk.setSelectedIndex(0);
+        usia.setText("");
+        telp.setText("");
+        cbbpaket.setSelectedIndex(0);
+        durasi.setText("");
+    }//GEN-LAST:event_btnresetActionPerformed
 
     /**
      * @param args the command line arguments
