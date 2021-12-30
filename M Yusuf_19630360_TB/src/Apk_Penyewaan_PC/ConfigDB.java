@@ -294,4 +294,7 @@ public class ConfigDB {
             evt.consume();
         }
      }
+     
+     //==================== COMBOBOX PELANGGAN TRANSAKSI
+     
 }

@@ -239,8 +239,9 @@ public class FormOperator extends javax.swing.JFrame {
             }
         });
 
-        id.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        id.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         id.setForeground(new java.awt.Color(255, 51, 0));
+        id.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel9.setBackground(new java.awt.Color(255, 153, 0));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

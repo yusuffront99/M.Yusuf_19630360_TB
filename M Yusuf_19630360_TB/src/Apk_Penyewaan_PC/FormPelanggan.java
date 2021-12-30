@@ -530,6 +530,7 @@ public class FormPelanggan extends javax.swing.JFrame {
         String[] V = {txtid, txtnama, jk, txtusia, txttelp, paket, total};       
       
         new ConfigDB().getDupKey("pelanggan", "id_pelanggan", id.getText());
+                
         new ConfigDB().updateData("pelanggan", "id_pelanggan", txtid, F, V);
         JOptionPane.showMessageDialog(null, "Data Updated Successfully");
         new ConfigDB().setTitleColumn(tblpelanggan, subtitle);
