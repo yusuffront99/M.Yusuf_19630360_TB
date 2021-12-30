@@ -296,5 +296,4 @@ public class ConfigDB {
      }
      
      //==================== COMBOBOX PELANGGAN TRANSAKSI
-     
 }
