@@ -32,12 +32,22 @@ public class FormMenu extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         btnoperator2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
         btncustomer = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
-        jButton4 = new javax.swing.JButton();
+        btncashier = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        operator = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        customer = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        cashier = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        lapOperator = new javax.swing.JMenuItem();
+        lapCustomer = new javax.swing.JMenu();
+        lapTransaksi = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -68,6 +78,7 @@ public class FormMenu extends javax.swing.JFrame {
         });
         jToolBar1.add(btnoperator2);
         jToolBar1.add(jSeparator1);
+        jToolBar1.add(jSeparator4);
 
         btncustomer.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\icons8-circled-user-male-skin-type-7-48.png")); // NOI18N
         btncustomer.setText("COSTOMER");
@@ -79,15 +90,76 @@ public class FormMenu extends javax.swing.JFrame {
         jToolBar1.add(btncustomer);
         jToolBar1.add(jSeparator2);
 
-        jButton4.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\clerk.png")); // NOI18N
-        jButton4.setText("CASHIER");
-        jToolBar1.add(jButton4);
+        btncashier.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\clerk.png")); // NOI18N
+        btncashier.setText("CASHIER");
+        btncashier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncashierActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btncashier);
 
-        jMenu2.setText("File");
+        jMenuBar1.setBackground(new java.awt.Color(255, 153, 0));
+        jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+
+        jMenu2.setText("Home");
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Edit");
+        jMenu3.setText("Menu");
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+
+        operator.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        operator.setText("operator");
+        operator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                operatorActionPerformed(evt);
+            }
+        });
+        jMenu3.add(operator);
+        jMenu3.add(jSeparator3);
+
+        customer.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        customer.setText("customer");
+        customer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerActionPerformed(evt);
+            }
+        });
+        jMenu3.add(customer);
+        jMenu3.add(jSeparator5);
+
+        cashier.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        cashier.setText("cashier");
+        cashier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashierActionPerformed(evt);
+            }
+        });
+        jMenu3.add(cashier);
+
         jMenuBar1.add(jMenu3);
+
+        jMenu4.setBackground(new java.awt.Color(255, 204, 0));
+        jMenu4.setText("Laporan");
+        jMenu4.setFocusCycleRoot(true);
+        jMenu4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+
+        lapOperator.setText("Laporan Data Operator");
+        lapOperator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lapOperatorActionPerformed(evt);
+            }
+        });
+        jMenu4.add(lapOperator);
+
+        lapCustomer.setText("Laporan Data Customer");
+        jMenu4.add(lapCustomer);
+
+        lapTransaksi.setText("Laporan Data Transaksi");
+        jMenu4.add(lapTransaksi);
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -122,6 +194,35 @@ public class FormMenu extends javax.swing.JFrame {
         new FormOperator().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnoperator2ActionPerformed
+
+    private void operatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operatorActionPerformed
+        // TODO add your handling code here:
+        new FormOperator().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_operatorActionPerformed
+
+    private void cashierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierActionPerformed
+        // TODO add your handling code here
+        new FormTransaksi().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cashierActionPerformed
+
+    private void btncashierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncashierActionPerformed
+        // TODO add your handling code here
+        new FormTransaksi().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btncashierActionPerformed
+
+    private void customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerActionPerformed
+        // TODO add your handling code here:
+        new FormPelanggan().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_customerActionPerformed
+
+    private void lapOperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapOperatorActionPerformed
+        // TODO add your handling code here:
+        new ConfigDB().ReportShow("src/Laporan_Operator/report_operator.jrxml", "SELECT * FROM operator");
+    }//GEN-LAST:event_lapOperatorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,16 +260,26 @@ public class FormMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btncashier;
     private javax.swing.JButton btncustomer;
     private javax.swing.JButton btnoperator2;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JMenuItem cashier;
+    private javax.swing.JMenuItem customer;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JToolBar.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JMenu lapCustomer;
+    private javax.swing.JMenuItem lapOperator;
+    private javax.swing.JMenuItem lapTransaksi;
+    private javax.swing.JMenuItem operator;
     // End of variables declaration//GEN-END:variables
 }

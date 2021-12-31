@@ -113,6 +113,9 @@
               <Image iconType="2" name="D:\SEMESTER 5\PBO 2\UAS\M.Yusuf_19630360_TB\icons\home.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnhomeActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnexit">
           <Properties>
@@ -120,6 +123,9 @@
               <Image iconType="2" name="D:\SEMESTER 5\PBO 2\UAS\M.Yusuf_19630360_TB\icons\exit.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnexitActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
@@ -189,6 +195,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbltransaksiMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -325,7 +334,7 @@
                       <Group type="102" attributes="0">
                           <Component id="simpan" min="-2" pref="132" max="-2" attributes="0"/>
                           <EmptySpace pref="43" max="32767" attributes="0"/>
-                          <Component id="simpan1" min="-2" pref="132" max="-2" attributes="0"/>
+                          <Component id="hapus" min="-2" pref="132" max="-2" attributes="0"/>
                       </Group>
                       <Component id="cbbidpelanggan" max="32767" attributes="0"/>
                       <Component id="tgltransaksi" alignment="0" max="32767" attributes="0"/>
@@ -370,7 +379,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="simpan" min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="simpan1" min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="hapus" min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="40" max="32767" attributes="0"/>
               </Group>
@@ -389,8 +398,12 @@
         <Component class="javax.swing.JTextField" name="kdtransaksi">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="0"/>
+              <Font name="Tahoma" size="18" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -505,7 +518,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="simpan1">
+        <Component class="javax.swing.JButton" name="hapus">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -519,7 +532,7 @@
             <Property name="text" type="java.lang.String" value="Hapus"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="simpan1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hapusActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

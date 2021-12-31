@@ -453,10 +453,6 @@ public class FormOperator extends javax.swing.JFrame {
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-        DateFormat dm = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = tgllahir.getDate();
-        String tgl = dm.format(date);
-        
         if(id.getText().equals("")){
             JOptionPane.showMessageDialog(null, "ID Operator tidak boleh kosong", "ID Operator", JOptionPane.WARNING_MESSAGE);
             id.requestFocus();
@@ -472,7 +468,13 @@ public class FormOperator extends javax.swing.JFrame {
         }else if(telp.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Nomor telepon tidak boleh kosong", "ID Operator", JOptionPane.WARNING_MESSAGE);
             telp.requestFocus();
+        }else if(tgllahir.getDate().equals("")){
+            System.out.println("tidak boleh kosong");
         }else{
+            
+            DateFormat dm = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = tgllahir.getDate();
+            String tgl = dm.format(date);
             
             String[] Fields = {"id_operator","nama","jns_kelamin","tanggal_lahir","alamat","telepon"};
             String[] Arrays = {id.getText(), nama.getText(), String.valueOf(cbbjk.getSelectedItem()), tgl, alamat.getText(), telp.getText()};
@@ -568,9 +570,11 @@ public class FormOperator extends javax.swing.JFrame {
     private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed
         // TODO add your handling code here:
         int Pilih = JOptionPane.showConfirmDialog(null,"Anda yakin ingin keluar aplikasi?","Logout",JOptionPane.OK_CANCEL_OPTION);
-        if(Pilih == JOptionPane.OK_OPTION)
+        if(Pilih == JOptionPane.OK_OPTION){
             JOptionPane.showMessageDialog(null, "Anda berhasil logout");
             this.dispose();
+        }
+           
     }//GEN-LAST:event_btnexitActionPerformed
 
     private void btnhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeActionPerformed

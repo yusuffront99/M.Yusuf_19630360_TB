@@ -73,7 +73,7 @@ public class FormTransaksi extends javax.swing.JFrame {
         simpan = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         cbbkasir = new javax.swing.JComboBox<>();
-        simpan1 = new javax.swing.JButton();
+        hapus = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,8 +81,18 @@ public class FormTransaksi extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 204, 0));
 
         btnhome.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\home.png")); // NOI18N
+        btnhome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhomeActionPerformed(evt);
+            }
+        });
 
         btnexit.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\exit.png")); // NOI18N
+        btnexit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnexitActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,6 +142,11 @@ public class FormTransaksi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbltransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbltransaksiMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbltransaksi);
 
         jPanel4.setBackground(new java.awt.Color(51, 204, 0));
@@ -225,7 +240,9 @@ public class FormTransaksi extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Kode Transaksi");
 
-        kdtransaksi.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        kdtransaksi.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        kdtransaksi.setForeground(new java.awt.Color(255, 0, 51));
+        kdtransaksi.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Kode Pelanggan");
@@ -270,13 +287,13 @@ public class FormTransaksi extends javax.swing.JFrame {
             }
         });
 
-        simpan1.setBackground(new java.awt.Color(255, 0, 51));
-        simpan1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        simpan1.setForeground(new java.awt.Color(255, 255, 255));
-        simpan1.setText("Hapus");
-        simpan1.addActionListener(new java.awt.event.ActionListener() {
+        hapus.setBackground(new java.awt.Color(255, 0, 51));
+        hapus.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        hapus.setForeground(new java.awt.Color(255, 255, 255));
+        hapus.setText("Hapus");
+        hapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                simpan1ActionPerformed(evt);
+                hapusActionPerformed(evt);
             }
         });
 
@@ -297,7 +314,7 @@ public class FormTransaksi extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addComponent(simpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cbbidpelanggan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tgltransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -333,7 +350,7 @@ public class FormTransaksi extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(simpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -393,6 +410,20 @@ public class FormTransaksi extends javax.swing.JFrame {
 
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
+        if(kdtransaksi.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Kode Transaksi tidak boleh kosong", "",JOptionPane.ERROR_MESSAGE);
+            kdtransaksi.requestFocus();
+        }else if(cbbidpelanggan.getSelectedItem().equals("--- Kode Pelanggan ---")){
+            JOptionPane.showMessageDialog(null, "Kode Pelanggan tidak boleh kosong", "",JOptionPane.ERROR_MESSAGE);
+            cbbidpelanggan.requestFocus();
+        }else if(cbbkasir.getSelectedItem().equals("--- Kasir ---")){
+            JOptionPane.showMessageDialog(null, "Kasir tidak boleh kosong", "",JOptionPane.ERROR_MESSAGE);
+            cbbkasir.requestFocus();
+        }else if(status.getSelectedItem().equals("--- status ---")){
+            JOptionPane.showMessageDialog(null, "Status pembayaran tidak boleh kosong", "",JOptionPane.ERROR_MESSAGE);
+            status.requestFocus();
+        }else{
+           
         DateFormat dm = new SimpleDateFormat("yyyy-MM-dd");
         Date date = tgltransaksi.getDate();
         String tgl_transaksi = dm.format(date);
@@ -400,11 +431,6 @@ public class FormTransaksi extends javax.swing.JFrame {
         String cbbkd = String.valueOf(cbbidpelanggan.getSelectedItem());        
         String cbbnama = String.valueOf(cbbkasir.getSelectedItem());
         String cbbstatus = String.valueOf(status.getSelectedItem());
-        
-//        if(kdtransaksi.getText().equals("")){
-//            JOptionPane.showMessageDialog(null, "Kode ");
-//        }
-        
         String[] F = {"kd_transaksi","id_pelanggan","nama","tgl_transaksi","status"};
         String[] V = {kdtransaksi.getText(),cbbkd, cbbnama, tgl_transaksi, cbbstatus};
         
@@ -413,21 +439,31 @@ public class FormTransaksi extends javax.swing.JFrame {
            kdtransaksi.requestFocus();
            kdtransaksi.setText("");
         }else{
-            new ConfigDB().saveTable("transaksi", F, V);
-            JOptionPane.showMessageDialog(null, "Data Saved Successfully");
-            new ConfigDB().setTitleColumn(tbltransaksi, subtitle);
-            new ConfigDB().setShowTable(tbltransaksi, subtitle, SQL);
-            new ConfigDB().setWidhtTitColumn(tbltransaksi, WidthToColumn);
+              int Pilih = JOptionPane.showConfirmDialog(null,"Anda menyimpan data ini?","simpan",JOptionPane.OK_CANCEL_OPTION);
+                if(Pilih == JOptionPane.OK_OPTION){
+                    new ConfigDB().saveTable("transaksi", F, V);
+                    JOptionPane.showMessageDialog(null, "Data Saved Successfully");
+                    new ConfigDB().setTitleColumn(tbltransaksi, subtitle);
+                    new ConfigDB().setShowTable(tbltransaksi, subtitle, SQL);
+                    new ConfigDB().setWidhtTitColumn(tbltransaksi, WidthToColumn);
+            }  
         }
+       } 
     }//GEN-LAST:event_simpanActionPerformed
 
     private void cbbkasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbkasirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbkasirActionPerformed
 
-    private void simpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpan1ActionPerformed
+    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_simpan1ActionPerformed
+        int Pilih = JOptionPane.showConfirmDialog(null,"Anda yakin ingin menghapus data ini?","Logout",JOptionPane.OK_CANCEL_OPTION);
+        if(Pilih == JOptionPane.OK_OPTION){
+            new ConfigDB().deleteDinamis("transaksi", "kd_transaksi", kdtransaksi.getText());
+            JOptionPane.showMessageDialog(null, "Anda berhasil logout");
+            this.dispose();
+        }
+    }//GEN-LAST:event_hapusActionPerformed
 
     private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
         // TODO add your handling code here:
@@ -456,6 +492,27 @@ public class FormTransaksi extends javax.swing.JFrame {
         
         new ConfigDB().ReportShow("src/Laporan_transaksi/report_transaksi.jrxml", SQL);
     }//GEN-LAST:event_printerActionPerformed
+
+    private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed
+        // TODO add your handling code here:
+        int Pilih = JOptionPane.showConfirmDialog(null,"Anda yakin ingin keluar aplikasi?","Logout",JOptionPane.OK_CANCEL_OPTION);
+        if(Pilih == JOptionPane.OK_OPTION){
+            JOptionPane.showMessageDialog(null, "Anda berhasil logout");
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnexitActionPerformed
+
+    private void tbltransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbltransaksiMouseClicked
+        // TODO add your handling code here:        
+        int row = tbltransaksi.getSelectedRow();
+        kdtransaksi.setText(tbltransaksi.getModel().getValueAt(row, 0).toString());       
+    }//GEN-LAST:event_tbltransaksiMouseClicked
+
+    private void btnhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeActionPerformed
+        // TODO add your handling code here:
+        new FormMenu().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnhomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -497,6 +554,7 @@ public class FormTransaksi extends javax.swing.JFrame {
     private javax.swing.JButton btnhome;
     private javax.swing.JComboBox<String> cbbidpelanggan;
     private javax.swing.JComboBox<String> cbbkasir;
+    private javax.swing.JButton hapus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -516,7 +574,6 @@ public class FormTransaksi extends javax.swing.JFrame {
     private javax.swing.JButton refresh;
     private javax.swing.JTextField search;
     private javax.swing.JButton simpan;
-    private javax.swing.JButton simpan1;
     private javax.swing.JComboBox<String> status;
     private javax.swing.JTable tbltransaksi;
     private com.toedter.calendar.JDateChooser tgltransaksi;

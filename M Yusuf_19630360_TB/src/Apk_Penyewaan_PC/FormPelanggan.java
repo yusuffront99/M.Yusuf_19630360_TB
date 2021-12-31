@@ -83,8 +83,18 @@ public class FormPelanggan extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 204, 0));
 
         btnhome.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\home.png")); // NOI18N
+        btnhome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhomeActionPerformed(evt);
+            }
+        });
 
         btnexit.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\exit.png")); // NOI18N
+        btnexit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnexitActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -581,9 +591,6 @@ public class FormPelanggan extends javax.swing.JFrame {
 
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-        Integer biaya = Integer.parseInt(durasi.getText()) * 3500;
-        String total = String.valueOf(biaya);
-        
         if(id.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Nomor ID tidak boleh kosong", "Inputan Kosong", JOptionPane.ERROR_MESSAGE);
             nama.requestFocus();
@@ -606,6 +613,10 @@ public class FormPelanggan extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usia tidak boleh kosong", "Inputan Kosong", JOptionPane.ERROR_MESSAGE);
             nama.requestFocus();
         }else{
+            
+            Integer biaya = Integer.parseInt(durasi.getText()) * 3500;
+            String total = String.valueOf(biaya);
+            
             String[] Fields = {"id_pelanggan","nama","jns_kelamin","usia","telepon","paket","durasi"};
             String[] Arrays = {id.getText(), nama.getText(), String.valueOf(cbbjk.getSelectedItem()), usia.getText(), telp.getText(), String.valueOf(cbbpaket.getSelectedItem()), total};
             
@@ -653,6 +664,21 @@ public class FormPelanggan extends javax.swing.JFrame {
         // TODO add your handling code here:
         new ConfigDB().ReportShow("src/Laporan_Pelanggan/report_pelanggan.jrxml", "SELECT * FROM pelanggan");
     }//GEN-LAST:event_btnprintActionPerformed
+
+    private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed
+        // TODO add your handling code here:
+        int Pilih = JOptionPane.showConfirmDialog(null,"Anda yakin ingin keluar aplikasi?","Logout",JOptionPane.OK_CANCEL_OPTION);
+        if(Pilih == JOptionPane.OK_OPTION){
+            JOptionPane.showMessageDialog(null, "Anda berhasil logout");
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnexitActionPerformed
+
+    private void btnhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhomeActionPerformed
+        // TODO add your handling code here:
+        new FormMenu().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnhomeActionPerformed
 
     /**
      * @param args the command line arguments
