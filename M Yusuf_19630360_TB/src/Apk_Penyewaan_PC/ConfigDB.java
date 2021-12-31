@@ -299,5 +299,15 @@ public class ConfigDB {
         }
      }
      
-     //==================== COMBOBOX PELANGGAN TRANSAKSI
+     //==================== LAPORAN DATA
+     public void reportData(String Folder, String File, String Table){
+         try {
+            int Pilih = JOptionPane.showConfirmDialog(null,"Apakah anda ingin mencetak Laporan Data Operator?","Print",JOptionPane.OK_CANCEL_OPTION);
+            if(Pilih == JOptionPane.OK_OPTION){
+                new ConfigDB().ReportShow("src/Laporan_"+Folder+"/report_"+File+".jrxml", "SELECT * FROM "+Table);
+            }
+         } catch (Exception e) {
+             System.out.println(e.toString());
+         }
+     }
 }

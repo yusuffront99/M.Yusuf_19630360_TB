@@ -5,6 +5,8 @@
  */
 package Apk_Penyewaan_PC;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author myusu
@@ -32,9 +34,10 @@ public class FormMenu extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         btnoperator2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
+        jSeparator6 = new javax.swing.JToolBar.Separator();
         btncustomer = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
+        jSeparator7 = new javax.swing.JToolBar.Separator();
         btncashier = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -46,7 +49,9 @@ public class FormMenu extends javax.swing.JFrame {
         cashier = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         lapOperator = new javax.swing.JMenuItem();
-        lapCustomer = new javax.swing.JMenu();
+        jSeparator8 = new javax.swing.JPopupMenu.Separator();
+        lapcustomer = new javax.swing.JMenuItem();
+        jSeparator9 = new javax.swing.JPopupMenu.Separator();
         lapTransaksi = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
@@ -78,7 +83,7 @@ public class FormMenu extends javax.swing.JFrame {
         });
         jToolBar1.add(btnoperator2);
         jToolBar1.add(jSeparator1);
-        jToolBar1.add(jSeparator4);
+        jToolBar1.add(jSeparator6);
 
         btncustomer.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\icons8-circled-user-male-skin-type-7-48.png")); // NOI18N
         btncustomer.setText("COSTOMER");
@@ -89,6 +94,7 @@ public class FormMenu extends javax.swing.JFrame {
         });
         jToolBar1.add(btncustomer);
         jToolBar1.add(jSeparator2);
+        jToolBar1.add(jSeparator7);
 
         btncashier.setIcon(new javax.swing.ImageIcon("D:\\SEMESTER 5\\PBO 2\\UAS\\M.Yusuf_19630360_TB\\icons\\clerk.png")); // NOI18N
         btncashier.setText("CASHIER");
@@ -152,11 +158,23 @@ public class FormMenu extends javax.swing.JFrame {
             }
         });
         jMenu4.add(lapOperator);
+        jMenu4.add(jSeparator8);
 
-        lapCustomer.setText("Laporan Data Customer");
-        jMenu4.add(lapCustomer);
+        lapcustomer.setText("Laporan Data Customer");
+        lapcustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lapcustomerActionPerformed(evt);
+            }
+        });
+        jMenu4.add(lapcustomer);
+        jMenu4.add(jSeparator9);
 
         lapTransaksi.setText("Laporan Data Transaksi");
+        lapTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lapTransaksiActionPerformed(evt);
+            }
+        });
         jMenu4.add(lapTransaksi);
 
         jMenuBar1.add(jMenu4);
@@ -221,8 +239,18 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void lapOperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapOperatorActionPerformed
         // TODO add your handling code here:
-        new ConfigDB().ReportShow("src/Laporan_Operator/report_operator.jrxml", "SELECT * FROM operator");
+        new ConfigDB().reportData("Operator", "operator", "operator");
     }//GEN-LAST:event_lapOperatorActionPerformed
+
+    private void lapTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapTransaksiActionPerformed
+        // TODO add your handling code here
+        new ConfigDB().reportData("transaksi", "transaksi", "transaksi");
+    }//GEN-LAST:event_lapTransaksiActionPerformed
+
+    private void lapcustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapcustomerActionPerformed
+        // TODO add your handling code here
+        new ConfigDB().reportData("Pelanggan", "pelanggan", "pelanggan");
+    }//GEN-LAST:event_lapcustomerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,12 +302,15 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
+    private javax.swing.JToolBar.Separator jSeparator6;
+    private javax.swing.JToolBar.Separator jSeparator7;
+    private javax.swing.JPopupMenu.Separator jSeparator8;
+    private javax.swing.JPopupMenu.Separator jSeparator9;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JMenu lapCustomer;
     private javax.swing.JMenuItem lapOperator;
     private javax.swing.JMenuItem lapTransaksi;
+    private javax.swing.JMenuItem lapcustomer;
     private javax.swing.JMenuItem operator;
     // End of variables declaration//GEN-END:variables
 }
