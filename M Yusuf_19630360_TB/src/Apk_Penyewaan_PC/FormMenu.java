@@ -31,6 +31,7 @@ public class FormMenu extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         btnoperator2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
@@ -53,6 +54,8 @@ public class FormMenu extends javax.swing.JFrame {
         lapcustomer = new javax.swing.JMenuItem();
         jSeparator9 = new javax.swing.JPopupMenu.Separator();
         lapTransaksi = new javax.swing.JMenuItem();
+        Keluar = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -60,15 +63,30 @@ public class FormMenu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("JASA SEWA PC WARNET");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 754, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(194, 194, 194)
+                    .addComponent(jLabel8)
+                    .addContainerGap(195, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 436, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(199, 199, 199)
+                    .addComponent(jLabel8)
+                    .addContainerGap(200, Short.MAX_VALUE)))
         );
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -179,6 +197,24 @@ public class FormMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        Keluar.setText("Keluar");
+        Keluar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Keluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeluarActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("Keluar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        Keluar.add(jMenuItem1);
+
+        jMenuBar1.add(Keluar);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,13 +280,27 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void lapTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapTransaksiActionPerformed
         // TODO add your handling code here
-        new ConfigDB().reportData("transaksi", "transaksi", "transaksi");
+       String SQL = "select pelanggan.id_pelanggan, transaksi.kd_transaksi, pelanggan.nama, pelanggan.durasi, transaksi.tgl_transaksi, transaksi.status FROM transaksi INNER JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan";
+
+        new ConfigDB().ReportShow("src/Laporan_transaksi/report_transaksi.jrxml", SQL);
     }//GEN-LAST:event_lapTransaksiActionPerformed
 
     private void lapcustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lapcustomerActionPerformed
         // TODO add your handling code here
         new ConfigDB().reportData("Pelanggan", "pelanggan", "pelanggan");
     }//GEN-LAST:event_lapcustomerActionPerformed
+
+    private void KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarActionPerformed
+        // TODO add your handling code here:
+        new FormLogin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_KeluarActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        new FormLogin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,16 +338,19 @@ public class FormMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Keluar;
     private javax.swing.JButton btncashier;
     private javax.swing.JButton btncustomer;
     private javax.swing.JButton btnoperator2;
     private javax.swing.JMenuItem cashier;
     private javax.swing.JMenuItem customer;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
