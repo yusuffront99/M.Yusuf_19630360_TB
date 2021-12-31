@@ -54,8 +54,9 @@ public class FormMenu extends javax.swing.JFrame {
         lapcustomer = new javax.swing.JMenuItem();
         jSeparator9 = new javax.swing.JPopupMenu.Separator();
         lapTransaksi = new javax.swing.JMenuItem();
-        Keluar = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        profil = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        keluar = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -197,23 +198,31 @@ public class FormMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        Keluar.setText("Keluar");
-        Keluar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        Keluar.addActionListener(new java.awt.event.ActionListener() {
+        profil.setText("Profil");
+        profil.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        profil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KeluarActionPerformed(evt);
+                profilActionPerformed(evt);
             }
         });
 
-        jMenuItem1.setText("Keluar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setText("My Profil");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        Keluar.add(jMenuItem1);
+        profil.add(jMenuItem2);
 
-        jMenuBar1.add(Keluar);
+        keluar.setText("Keluar");
+        keluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keluarActionPerformed(evt);
+            }
+        });
+        profil.add(keluar);
+
+        jMenuBar1.add(profil);
 
         setJMenuBar(jMenuBar1);
 
@@ -290,17 +299,23 @@ public class FormMenu extends javax.swing.JFrame {
         new ConfigDB().reportData("Pelanggan", "pelanggan", "pelanggan");
     }//GEN-LAST:event_lapcustomerActionPerformed
 
-    private void KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarActionPerformed
+    private void profilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilActionPerformed
         // TODO add your handling code here:
         new FormLogin().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_KeluarActionPerformed
+    }//GEN-LAST:event_profilActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarActionPerformed
         // TODO add your handling code here:
         new FormLogin().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_keluarActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here
+        new FormProfil().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -338,7 +353,6 @@ public class FormMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Keluar;
     private javax.swing.JButton btncashier;
     private javax.swing.JButton btncustomer;
     private javax.swing.JButton btnoperator2;
@@ -350,7 +364,7 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
@@ -361,9 +375,11 @@ public class FormMenu extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu.Separator jSeparator9;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JMenuItem keluar;
     private javax.swing.JMenuItem lapOperator;
     private javax.swing.JMenuItem lapTransaksi;
     private javax.swing.JMenuItem lapcustomer;
     private javax.swing.JMenuItem operator;
+    private javax.swing.JMenu profil;
     // End of variables declaration//GEN-END:variables
 }

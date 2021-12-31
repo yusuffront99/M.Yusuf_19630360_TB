@@ -24,9 +24,9 @@ public class FormTransaksi extends javax.swing.JFrame {
      */
  
     
-    String[] subtitle = {"Kode Pelanggan","ID Pelanggan", "Nama Lengkap", "Total Biaya", "Tanggal Transaksi", "Status Pembayaran"};
+    String[] subtitle = {"Kode Transaksi","ID Pelanggan", "Nama Lengkap", "Total Biaya", "Tanggal Transaksi", "Status Pembayaran"};
     int[] WidthToColumn = {140, 140, 180,160,180,180};
-    String SQL = "select pelanggan.id_pelanggan, transaksi.kd_transaksi, pelanggan.nama, pelanggan.durasi, transaksi.tgl_transaksi, transaksi.status FROM transaksi INNER JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan";
+    String SQL = "select transaksi.kd_transaksi, pelanggan.id_pelanggan, pelanggan.nama, pelanggan.durasi, transaksi.tgl_transaksi, transaksi.status FROM transaksi INNER JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan";
 
     
     
@@ -457,11 +457,13 @@ public class FormTransaksi extends javax.swing.JFrame {
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
         // TODO add your handling code here:
-        int Pilih = JOptionPane.showConfirmDialog(null,"Anda yakin ingin menghapus data ini?","Logout",JOptionPane.OK_CANCEL_OPTION);
+        int Pilih = JOptionPane.showConfirmDialog(null,"Anda yakin ingin menghapus data ini?","Delete",JOptionPane.OK_CANCEL_OPTION);
         if(Pilih == JOptionPane.OK_OPTION){
             new ConfigDB().deleteDinamis("transaksi", "kd_transaksi", kdtransaksi.getText());
-            JOptionPane.showMessageDialog(null, "Anda berhasil logout");
-            this.dispose();
+            JOptionPane.showMessageDialog(null, "Data Deleted Succesfully");
+            new ConfigDB().setTitleColumn(tbltransaksi, subtitle);
+            new ConfigDB().setShowTable(tbltransaksi, subtitle, SQL);
+            new ConfigDB().setWidhtTitColumn(tbltransaksi, WidthToColumn);
         }
     }//GEN-LAST:event_hapusActionPerformed
 
