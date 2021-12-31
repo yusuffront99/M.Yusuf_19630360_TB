@@ -92,7 +92,7 @@ public class ConfigDB {
     }
     
     //======= SIMPAN DATA
-    public void saveTable(String Table, String[] Fields, String[] Values){
+    public void saveTable(String Table, String[]Fields, String[] Values){
         try {
             String SQL = "INSERT INTO "+Table+""+getFieldArray(Fields)+" VALUES "+getValueArray(Values);
             Statement command = getConnect().createStatement();
@@ -103,6 +103,10 @@ public class ConfigDB {
             System.out.println(e.toString());
         }
     }
+    
+    //======== SIMPAN DATA AUTO_INC
+    //======= SIMPAN DATA
+    
     
     //======= UPDATE DATA
      public String getDoubleArrays(String[] Fields, String[] Values){

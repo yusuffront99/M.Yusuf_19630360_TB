@@ -22,6 +22,8 @@ public class FormTransaksi extends javax.swing.JFrame {
     /**
      * Creates new form FormTransaksi
      */
+ 
+    
     public FormTransaksi() {
         initComponents();
     }
@@ -48,9 +50,12 @@ public class FormTransaksi extends javax.swing.JFrame {
         cbbidpelanggan = new javax.swing.JComboBox<>();
         tgltransaksi = new com.toedter.calendar.JDateChooser();
         status = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        simpan = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         cbbkasir = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbltransaksi = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,7 +109,7 @@ public class FormTransaksi extends javax.swing.JFrame {
         jLabel2.setText("Kode Pelanggan");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Tanggal");
+        jLabel3.setText("Tanggal Transaksi");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Status Pembayaran");
@@ -117,13 +122,15 @@ public class FormTransaksi extends javax.swing.JFrame {
             }
         });
 
+        tgltransaksi.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
         status.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- status ---", "Lunas", "Hutang" }));
 
-        jButton1.setText("simpan");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        simpan.setText("simpan");
+        simpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                simpanActionPerformed(evt);
             }
         });
 
@@ -145,7 +152,7 @@ public class FormTransaksi extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -187,8 +194,40 @@ public class FormTransaksi extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(19, 19, 19)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(265, 265, 265))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+
+        tbltransaksi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tbltransaksi);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1223, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(126, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -198,16 +237,20 @@ public class FormTransaksi extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -230,7 +273,7 @@ public class FormTransaksi extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_cbbidpelangganActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
         DateFormat dm = new SimpleDateFormat("yyyy-MM-dd");
         Date date = tgltransaksi.getDate();
@@ -240,12 +283,16 @@ public class FormTransaksi extends javax.swing.JFrame {
         String cbbnama = String.valueOf(cbbkasir.getSelectedItem());
         String cbbstatus = String.valueOf(status.getSelectedItem());
         
+//        if(kdtransaksi.getText().equals("")){
+//            JOptionPane.showMessageDialog(null, "Kode ");
+//        }
+        
         String[] F = {"kd_transaksi","id_pelanggan","nama","tgl_transaksi","status"};
-        String[] V = {kdtransaksi.getText(), cbbkd, cbbnama, tgl_transaksi, cbbstatus};
+        String[] V = {kdtransaksi.getText(),cbbkd, cbbnama, tgl_transaksi, cbbstatus};
         
         new ConfigDB().saveTable("transaksi", F, V);
         JOptionPane.showMessageDialog(null, "Data Saved Successfully");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_simpanActionPerformed
 
     private void cbbkasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbkasirActionPerformed
         // TODO add your handling code here:
@@ -262,7 +309,7 @@ public class FormTransaksi extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -291,7 +338,6 @@ public class FormTransaksi extends javax.swing.JFrame {
     private javax.swing.JButton btnhome;
     private javax.swing.JComboBox<String> cbbidpelanggan;
     private javax.swing.JComboBox<String> cbbkasir;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -300,8 +346,12 @@ public class FormTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField kdtransaksi;
+    private javax.swing.JButton simpan;
     private javax.swing.JComboBox<String> status;
+    private javax.swing.JTable tbltransaksi;
     private com.toedter.calendar.JDateChooser tgltransaksi;
     // End of variables declaration//GEN-END:variables
 }
