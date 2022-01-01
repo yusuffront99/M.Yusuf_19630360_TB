@@ -184,8 +184,10 @@ public class ConfigDB {
             rs.next();
             if(rs.getRow() == 1){
                 JOptionPane.showMessageDialog(null, "Berhasil Login");
+                new FormMenu().setVisible(true);
             }else{
-                JOptionPane.showMessageDialog(null, "Username dan Password Salah");
+                JOptionPane.showMessageDialog(null, "Anda belum terdaftar sebagai admin");
+                new FormLogin().setVisible(true);
             }
         } catch (Exception e) {
             System.out.println(e.toString());

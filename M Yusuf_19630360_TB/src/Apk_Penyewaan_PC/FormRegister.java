@@ -175,6 +175,8 @@ public class FormRegister extends javax.swing.JFrame {
             
             new ConfigDB().saveTable("admin", Fields, Values);
             JOptionPane.showMessageDialog(null, "Youre successfully registered");
+            new FormLogin().setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 

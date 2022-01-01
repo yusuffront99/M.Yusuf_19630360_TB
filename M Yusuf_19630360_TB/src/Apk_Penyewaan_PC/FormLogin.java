@@ -153,7 +153,6 @@ public class FormLogin extends javax.swing.JFrame {
           String pass = String.valueOf(password.getPassword()); 
         
           new ConfigDB().login("admin",user, pass);
-          new FormMenu().setVisible(true);
           this.dispose();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
