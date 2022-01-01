@@ -20,6 +20,16 @@ public class FormOperator extends javax.swing.JFrame {
     /**
      * Creates new form FormOperator
      */
+    public void resetAuto(){
+        Date date = new Date();
+        
+        id.setText("");
+        nama.setText("");
+        cbbjk.setSelectedIndex(0);
+        tgllahir.setDate(date);
+        alamat.setText("");
+        telp.setText("");
+    }
     
     String[] subtitle = {"ID Operator", "Nama Lengkap", "Jenis Kelamin", "Tanggal Lahir","Alamat","Telepon"};
     int[] WidthToColumn = {80,180,120,150,380,160};
@@ -484,6 +494,7 @@ public class FormOperator extends javax.swing.JFrame {
             }else{
                 new ConfigDB().saveTable("operator", Fields, Arrays);
                 JOptionPane.showMessageDialog(null, "Data Saved Successfully");
+                resetAuto();
                 new ConfigDB().setTitleColumn(tbloperator, subtitle);
                 new ConfigDB().setShowTable(tbloperator, subtitle, SQL);
                 new ConfigDB().setWidhtTitColumn(tbloperator, WidthToColumn);
@@ -518,6 +529,7 @@ public class FormOperator extends javax.swing.JFrame {
         String[] V = {txtid, txtnama, jk, tgl, txtalamat, txttelp};
         
         new ConfigDB().updateData("operator", "id_operator", txtid, F, V);
+        resetAuto();
         new ConfigDB().setTitleColumn(tbloperator, subtitle);
         new ConfigDB().setShowTable(tbloperator, subtitle, SQL);
         new ConfigDB().setWidhtTitColumn(tbloperator, WidthToColumn);
@@ -540,14 +552,7 @@ public class FormOperator extends javax.swing.JFrame {
 
     private void btnresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresetActionPerformed
         // TODO add your handling code here:
-        Date date = new Date();
-        
-        id.setText("");
-        nama.setText("");
-        cbbjk.setSelectedIndex(0);
-        tgllahir.setDate(date);
-        alamat.setText("");
-        telp.setText("");
+        resetAuto();
     }//GEN-LAST:event_btnresetActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed

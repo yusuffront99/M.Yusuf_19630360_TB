@@ -16,8 +16,18 @@ public class FormPelanggan extends javax.swing.JFrame {
     /**
      * Creates new form FormPelanggan
      */
+    public void resetAuto(){
+        id.setText("");
+        nama.setText("");
+        cbbjk.setSelectedIndex(0);
+        usia.setText("");
+        telp.setText("");
+        cbbpaket.setSelectedIndex(0);
+        durasi.setText("");
+    }
+    
     String[] subtitle = {"Nomor ID", "Nama Lengkap", "Jenis Kelamin", "usia", "Telepon","Paketan","Biaya"};
-    int[] WidthToColumn = {80,180,120,160,130,160};
+    int[] WidthToColumn = {140,180,120,160,130,160};
     String SQL = "SELECT * FROM pelanggan";
     
     
@@ -221,6 +231,7 @@ public class FormPelanggan extends javax.swing.JFrame {
         jLabel10.setText("Kode Pelanggan");
 
         id.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        id.setText("KP22-");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -563,6 +574,7 @@ public class FormPelanggan extends javax.swing.JFrame {
                 
         new ConfigDB().updateData("pelanggan", "id_pelanggan", txtid, F, V);
         JOptionPane.showMessageDialog(null, "Data Updated Successfully");
+        resetAuto();
         new ConfigDB().setTitleColumn(tblpelanggan, subtitle);
         new ConfigDB().setShowTable(tblpelanggan, subtitle, SQL);
         new ConfigDB().setWidhtTitColumn(tblpelanggan, WidthToColumn);
@@ -625,6 +637,7 @@ public class FormPelanggan extends javax.swing.JFrame {
             }else{
                 new ConfigDB().saveTable("pelanggan", Fields, Arrays);
                 JOptionPane.showMessageDialog(null, "Data Saved Successfully");
+                resetAuto();
                 new ConfigDB().setTitleColumn(tblpelanggan, subtitle);
                 new ConfigDB().setShowTable(tblpelanggan, subtitle, SQL);
                 new ConfigDB().setWidhtTitColumn(tblpelanggan, WidthToColumn);  
@@ -634,13 +647,7 @@ public class FormPelanggan extends javax.swing.JFrame {
 
     private void btnresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresetActionPerformed
         // TODO add your handling code here:
-        id.setText("");
-        nama.setText("");
-        cbbjk.setSelectedIndex(0);
-        usia.setText("");
-        telp.setText("");
-        cbbpaket.setSelectedIndex(0);
-        durasi.setText("");
+        resetAuto();
     }//GEN-LAST:event_btnresetActionPerformed
 
     private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased

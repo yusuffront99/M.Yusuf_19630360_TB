@@ -293,7 +293,7 @@ public class ConfigDB {
       
      //================== ADDITION METHODS
      public void FilterInputType(KeyEvent evt){
-         char x = evt.getKeyChar();
+        char x = evt.getKeyChar();
         if(Character.isAlphabetic(x)){
             new JFrame().getToolkit().beep();
             JOptionPane.showMessageDialog(null, "Masukkan angka 0 -9");
@@ -301,7 +301,7 @@ public class ConfigDB {
         }
      }
      
-     //==================== LAPORAN DATA
+    //==================== LAPORAN DATA
      public void reportData(String Folder, String File, String Table){
          try {
             int Pilih = JOptionPane.showConfirmDialog(null,"Apakah anda ingin mencetak Laporan Data Operator?","Print",JOptionPane.OK_CANCEL_OPTION);

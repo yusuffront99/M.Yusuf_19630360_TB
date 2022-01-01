@@ -58,7 +58,9 @@ public class FormRegister extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password");
 
-        btnRegister.setBackground(new java.awt.Color(255, 255, 0));
+        btnRegister.setBackground(new java.awt.Color(255, 153, 0));
+        btnRegister.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +68,9 @@ public class FormRegister extends javax.swing.JFrame {
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(255, 102, 0));
+        btnBack.setBackground(new java.awt.Color(255, 204, 0));
+        btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +131,7 @@ public class FormRegister extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("FORM REGISTER");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

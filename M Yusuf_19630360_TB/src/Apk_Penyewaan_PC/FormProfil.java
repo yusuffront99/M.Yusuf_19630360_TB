@@ -160,7 +160,7 @@ public class FormProfil extends javax.swing.JFrame {
         jLabel12.setText("Biodata Singkat");
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 0));
-        jLabel13.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 0));
         jLabel13.setText("https://github.com/yusuffront99/M.Yusuf_19630360_TB");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,7 +175,7 @@ public class FormProfil extends javax.swing.JFrame {
         jLabel15.setText("UAS Besar");
 
         jLabel16.setBackground(new java.awt.Color(255, 255, 0));
-        jLabel16.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 0));
         jLabel16.setText("https://github.com/yusuffront99/M.Yusuf_19630360_TB");
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -218,14 +218,16 @@ public class FormProfil extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(98, 98, 98)
                                         .addComponent(jLabel8))))
-                            .addComponent(jLabel12)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(57, 57, 57))
+                            .addComponent(jLabel12))
+                        .addGap(59, 59, 59))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(189, 189, 189))))
+                        .addGap(189, 189, 189))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +264,7 @@ public class FormProfil extends javax.swing.JFrame {
                 .addComponent(jLabel15)
                 .addGap(1, 1, 1)
                 .addComponent(jLabel16)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
