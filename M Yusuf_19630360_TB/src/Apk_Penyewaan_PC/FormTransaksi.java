@@ -22,7 +22,14 @@ public class FormTransaksi extends javax.swing.JFrame {
     /**
      * Creates new form FormTransaksi
      */
- 
+    public void resetAuto(){
+        Date date = new Date();
+        kdtransaksi.setText("");
+        cbbidpelanggan.setSelectedIndex(0);
+        cbbkasir.setSelectedIndex(0);
+        tgltransaksi.setDate(date);
+        status.setSelectedIndex(0);
+    }
     
     String[] subtitle = {"Kode Transaksi","ID Pelanggan", "Nama Lengkap", "Total Biaya", "Tanggal Transaksi", "Status Pembayaran"};
     int[] WidthToColumn = {140, 140, 180,160,180,180};
@@ -436,6 +443,7 @@ public class FormTransaksi extends javax.swing.JFrame {
         
         if(new ConfigDB().getDupKey("transaksi", "kd_transaksi", kdtransaksi.getText())){
            JOptionPane.showMessageDialog(null, "You're Data Already Registered");
+           resetAuto();
            kdtransaksi.requestFocus();
            kdtransaksi.setText("");
         }else{
@@ -478,12 +486,7 @@ public class FormTransaksi extends javax.swing.JFrame {
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         // TODO add your handling code here:
-        Date date = new Date();
-        kdtransaksi.setText("");
-        cbbidpelanggan.setSelectedIndex(0);
-        cbbkasir.setSelectedIndex(0);
-        tgltransaksi.setDate(date);
-        status.setSelectedIndex(0);
+        
         new ConfigDB().setTitleColumn(tbltransaksi, subtitle);
         new ConfigDB().setShowTable(tbltransaksi, subtitle, SQL);
         new ConfigDB().setWidhtTitColumn(tbltransaksi, WidthToColumn);
@@ -500,6 +503,7 @@ public class FormTransaksi extends javax.swing.JFrame {
         if(Pilih == JOptionPane.OK_OPTION){
             JOptionPane.showMessageDialog(null, "Anda berhasil logout");
             this.dispose();
+            new FormLogin().setVisible(true);
         }
     }//GEN-LAST:event_btnexitActionPerformed
 

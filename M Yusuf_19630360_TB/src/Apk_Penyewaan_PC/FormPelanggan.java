@@ -311,6 +311,7 @@ public class FormPelanggan extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
 
+        search.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         search.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchKeyReleased(evt);
@@ -678,6 +679,7 @@ public class FormPelanggan extends javax.swing.JFrame {
         if(Pilih == JOptionPane.OK_OPTION){
             JOptionPane.showMessageDialog(null, "Anda berhasil logout");
             this.dispose();
+            new FormLogin().setVisible(true);
         }
     }//GEN-LAST:event_btnexitActionPerformed
 

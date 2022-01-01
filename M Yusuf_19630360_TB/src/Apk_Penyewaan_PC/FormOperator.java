@@ -377,6 +377,7 @@ public class FormOperator extends javax.swing.JFrame {
             }
         });
 
+        search.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         search.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchKeyReleased(evt);
@@ -578,6 +579,7 @@ public class FormOperator extends javax.swing.JFrame {
         if(Pilih == JOptionPane.OK_OPTION){
             JOptionPane.showMessageDialog(null, "Anda berhasil logout");
             this.dispose();
+            new FormLogin().setVisible(true);
         }
            
     }//GEN-LAST:event_btnexitActionPerformed
