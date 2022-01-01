@@ -307,8 +307,12 @@ public class FormMenu extends javax.swing.JFrame {
 
     private void keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarActionPerformed
         // TODO add your handling code here:
-        new FormLogin().setVisible(true);
-        this.dispose();
+        int Pilih = JOptionPane.showConfirmDialog(null,"Anda yakin ingin keluar aplikasi?","Logout",JOptionPane.OK_CANCEL_OPTION);
+        if(Pilih == JOptionPane.OK_OPTION){
+            JOptionPane.showMessageDialog(null, "Anda berhasil logout");
+            this.dispose();
+            new FormLogin().setVisible(true);
+        }
     }//GEN-LAST:event_keluarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed

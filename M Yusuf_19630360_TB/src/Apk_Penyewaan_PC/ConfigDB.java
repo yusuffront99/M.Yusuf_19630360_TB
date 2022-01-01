@@ -183,7 +183,7 @@ public class ConfigDB {
             
             rs.next();
             if(rs.getRow() == 1){
-                JOptionPane.showMessageDialog(null, "Berhasil Login");
+                JOptionPane.showMessageDialog(null, "Berhasil Login", "Login", JOptionPane.INFORMATION_MESSAGE);
                 new FormMenu().setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Anda belum terdaftar sebagai admin");

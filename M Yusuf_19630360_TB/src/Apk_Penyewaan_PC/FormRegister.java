@@ -174,7 +174,7 @@ public class FormRegister extends javax.swing.JFrame {
             String[] Values = {username.getText(), String.valueOf(password.getPassword()), String.valueOf(repassword.getPassword())}; 
             
             new ConfigDB().saveTable("admin", Fields, Values);
-            JOptionPane.showMessageDialog(null, "Youre successfully registered");
+            JOptionPane.showMessageDialog(null, "Youre successfully registered", "Register", JOptionPane.INFORMATION_MESSAGE);
             new FormLogin().setVisible(true);
             this.dispose();
         }
@@ -183,6 +183,7 @@ public class FormRegister extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         new FormLogin().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**
