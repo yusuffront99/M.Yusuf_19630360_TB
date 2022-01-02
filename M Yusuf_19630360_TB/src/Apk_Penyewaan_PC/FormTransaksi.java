@@ -33,7 +33,13 @@ public class FormTransaksi extends javax.swing.JFrame {
     
     String[] subtitle = {"Kode Transaksi","ID Pelanggan", "Nama Lengkap", "Total Biaya", "Tanggal Transaksi", "Status Pembayaran"};
     int[] WidthToColumn = {140, 140, 180,160,180,180};
-    String SQL = "select transaksi.kd_transaksi, pelanggan.id_pelanggan, pelanggan.nama, pelanggan.durasi, transaksi.tgl_transaksi, transaksi.status FROM transaksi INNER JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan";
+    String SQL = "select transaksi.kd_transaksi, "
+            + "pelanggan.id_pelanggan, "
+            + "pelanggan.nama, pelanggan.durasi, "
+            + "transaksi.tgl_transaksi, "
+            + "transaksi.status "
+            + "FROM transaksi "
+            + "INNER JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan";
 
     
     
@@ -443,7 +449,6 @@ public class FormTransaksi extends javax.swing.JFrame {
         
         if(new ConfigDB().getDupKey("transaksi", "kd_transaksi", kdtransaksi.getText())){
            JOptionPane.showMessageDialog(null, "You're Data Already Registered");
-           resetAuto();
            kdtransaksi.requestFocus();
            kdtransaksi.setText("");
         }else{
@@ -451,6 +456,7 @@ public class FormTransaksi extends javax.swing.JFrame {
                 if(Pilih == JOptionPane.OK_OPTION){
                     new ConfigDB().saveTable("transaksi", F, V);
                     JOptionPane.showMessageDialog(null, "Data Saved Successfully");
+                    resetAuto();
                     new ConfigDB().setTitleColumn(tbltransaksi, subtitle);
                     new ConfigDB().setShowTable(tbltransaksi, subtitle, SQL);
                     new ConfigDB().setWidhtTitColumn(tbltransaksi, WidthToColumn);

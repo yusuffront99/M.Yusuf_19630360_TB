@@ -37,7 +37,7 @@
 				<textElement textAlignment="Center">
 					<font size="10" isBold="false"/>
 				</textElement>
-				<text><![CDATA[DATA LAPORAN OPERATOR]]></text>
+				<text><![CDATA[DATA LAPORAN PELANGGAN]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="259" y="18" width="261" height="25" uuid="0d72202e-7b3d-4aba-b87f-dfdb71ef4d62"/>
@@ -248,6 +248,20 @@
 		<band height="54" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="152" height="20" uuid="3299c4e0-dadd-4c08-8da3-f8ffa617e01f"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Created Program By yusuffront]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-249" y="-8" width="152" height="20" uuid="494a1e5d-259f-4bf3-950a-5de8400c3d58"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Created Program By yusuffront]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-249" y="-8" width="152" height="20" uuid="aced5bf1-dc81-44da-8b95-798bf1d58f7e"/>
 				<textElement>
 					<font isBold="true" isItalic="true"/>
 				</textElement>
